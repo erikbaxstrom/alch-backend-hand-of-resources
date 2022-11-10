@@ -20,6 +20,18 @@ describe('Test People Routes', () => {
     ];
     expect(resp.body).toEqual(expectedResponse);
   });
+
+  it('/people/:id should return details for a person', async () => {
+    const resp = await request(app).get('/people/2');
+    const expectedResponse = {
+      id: '2',
+      firstName: 'Cole',
+      lastName: 'Benediktsson',
+    };
+    expect(resp.status).toBe(200);
+    expect(resp.body).toEqual(expectedResponse);
+  });
+
   afterAll(() => {
     pool.end();
   });
