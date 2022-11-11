@@ -58,10 +58,14 @@ describe('Test People Routes', () => {
   });
 
   it('DELETE /people/:id should delete a person', async () => {
+    console.log('starting delete!!');
     const resp = await request(app).delete('/people/3');
-    expect(resp.status).toBe(204);
+    console.log('deleted done. resp.body:', resp.body);
+    expect(resp.status).toBe(200);
 
-    const noResp = await request(app).delete('/people/3');
+    console.log('starting redelete!!');
+    const noResp = await request(app).get('/people/3');
+    console.log('redelete done. resp.body:', noResp.body);
     expect(noResp.status).toBe(404);
   });
 
