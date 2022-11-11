@@ -46,15 +46,23 @@ describe('Test People Routes', () => {
   });
 
   it('PUT /people/:id should update a person', async () => {
+    const resp = await request(app)
+      .put('/people/2')
+      .send({ lastName: 'Hubbybubby' });
     const expectedResponse = {
       id: '2',
       firstName: 'Cole',
       lastName: 'Hubbybubby',
     };
-    const resp = await request(app)
-      .put('/people/2')
-      .send({ lastName: 'Hubbybubby' });
     expect(resp.body).toEqual(expectedResponse);
+  });
+
+  it('DELETE /people/:id should delete a person', async () => {
+    const resp = await request(app).delete('/people/3');
+    expect(resp.status).toBe(204);
+
+    const noResp = await request(app).delete('/people/3');
+    expect(noResp.status).toBe(404);
   });
 
   afterAll(() => {
