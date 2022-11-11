@@ -44,6 +44,19 @@ describe('Test People Routes', () => {
     const resp = await request(app).post('/people').send(newPerson);
     expect(resp.body).toEqual(expectedResponse);
   });
+
+  it('PUT /people/:id should update a person', async () => {
+    const expectedResponse = {
+      id: '2',
+      firstName: 'Cole',
+      lastName: 'Hubbybubby',
+    };
+    const resp = await request(app)
+      .put('/people/2')
+      .send({ lastName: 'Hubbybubby' });
+    expect(resp.body).toEqual(expectedResponse);
+  });
+
   afterAll(() => {
     pool.end();
   });
