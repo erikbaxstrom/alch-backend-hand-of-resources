@@ -3,7 +3,6 @@ const setup = require('../data/setup');
 // const { request } = require('express');
 const request = require('supertest');
 const app = require('../lib/app');
-const { response } = require('../lib/app');
 
 describe('Test People Routes', () => {
   beforeEach(() => {
