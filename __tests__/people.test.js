@@ -3,12 +3,13 @@ const setup = require('../data/setup');
 // const { request } = require('express');
 const request = require('supertest');
 const app = require('../lib/app');
+const { response } = require('../lib/app');
 
 describe('Test People Routes', () => {
   beforeEach(() => {
     return setup(pool);
   });
-  it('/people should return a list of people and their ids', async () => {
+  it('GET /people should return a list of people and their ids', async () => {
     const resp = await request(app).get('/people');
     expect(resp.status).toBe(200);
     const expectedResponse = [
@@ -21,7 +22,7 @@ describe('Test People Routes', () => {
     expect(resp.body).toEqual(expectedResponse);
   });
 
-  it('/people/:id should return details for a person', async () => {
+  it('GET /people/:id should return details for a person', async () => {
     const resp = await request(app).get('/people/2');
     const expectedResponse = {
       id: '2',
@@ -32,6 +33,18 @@ describe('Test People Routes', () => {
     expect(resp.body).toEqual(expectedResponse);
   });
 
+  it('POST /people should add a new person', async () => {
+    const newPerson = {
+      firstName: 'Billy',
+      lastName: 'Johnson',
+    };
+    const expectedResponse = {
+      id: expect.any(String),
+      ...newPerson,
+    };
+    const resp = await request(app).post('/people').send(newPerson);
+    expect(resp.body).toEqual(expectedResponse);
+  });
   afterAll(() => {
     pool.end();
   });
