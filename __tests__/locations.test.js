@@ -60,10 +60,10 @@ it('PUT /location/:id should update a location', async () => {
 });
 
 it('DELETE /location/:id should delete a location', async () => {
-  const response = await request(app).delete('/location/2');
+  const response = await request(app).delete('/locations/2');
   expect(response.status).toBe(200);
 
-  const noResp = await request(app).get('/location/2');
+  const noResp = await request(app).get('/locations/2');
   expect(noResp.status).toBe(404);
 });
 
