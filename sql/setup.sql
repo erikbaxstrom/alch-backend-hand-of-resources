@@ -31,3 +31,20 @@ insert into cars (id, vin, color) values (2, '3GYFNBE32CS128208', 'Fuscia');
 insert into cars (id, vin, color) values (3, '1N4AB7AP8EN952800', 'Orange');
 insert into cars (id, vin, color) values (4, 'WBA6A0C55ED753888', 'Maroon');
 insert into cars (id, vin, color) values (5, 'JTDJTUD31DD796795', 'Goldenrod');
+
+
+
+
+DROP TABLE IF EXISTS locations;
+
+create table locations (
+	id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	city VARCHAR(50),
+	country VARCHAR(50)
+);
+
+insert into locations (city, country) values ('Oslo', 'Norway');
+insert into locations (city, country) values ('Göteborg', 'Sweden');
+insert into locations (city, country) values ('Petrovskaya', 'Russia');
+insert into locations (city, country) values ('Jingling', 'China');
+insert into locations (city, country) values ('Xiaozhang', 'China');
