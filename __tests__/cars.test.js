@@ -31,6 +31,18 @@ describe('Test Cars Routes', () => {
     expect(resp.body).toEqual(expectedResponse);
   });
 
+  it('POST /car should add a new car', async () => {
+    const newCar = {
+      id: 5,
+      vin: '1N6AA0ED3FN456631',
+      color: 'Electric Blue',
+    };
+    const response = await (
+      await request(app).post('/car')
+    ).setEncoding(newCar);
+    expect(response.body).toEqual(newCar);
+  });
+
   afterAll(() => {
     pool.end();
   });
