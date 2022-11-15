@@ -50,7 +50,6 @@ it('PUT', async () => {
   const response = await request(app)
     .put('/locations/4')
     .send({ city: 'Beijing' });
-  console.log('whaaa:', response.body);
   expect(response.status).toBe(200);
   const expectedResponse = {
     id: '4',
