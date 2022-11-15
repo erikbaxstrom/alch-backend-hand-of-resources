@@ -46,7 +46,7 @@ it('POST /location should add a new location', async () => {
   });
 });
 
-it('PUT', async () => {
+it('PUT /location/:id should update a location', async () => {
   const response = await request(app)
     .put('/locations/4')
     .send({ city: 'Beijing' });
@@ -57,6 +57,14 @@ it('PUT', async () => {
     country: 'China',
   };
   expect(response.body).toEqual(expectedResponse);
+});
+
+it('DELETE /location/:id should delete a location', async () => {
+  const response = await request(app).delete('/location/2');
+  expect(response.status).toBe(200);
+
+  const noResp = await request(app).get('/location/2');
+  expect(noResp.status).toBe(404);
 });
 
 afterAll(() => {
