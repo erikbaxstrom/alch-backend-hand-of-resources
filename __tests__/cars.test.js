@@ -55,13 +55,13 @@ describe('Test Cars Routes', () => {
   });
 });
 
-it('stuff', () => {
-  try {
-    //something
-  } catch (e) {
-    //catch something
-  }
-});
+// it('stuff', () => {
+//   try {
+//     //something
+//   } catch (e) {
+//     //catch something
+//   }
+// });
 
 afterAll(() => {
   pool.end();
