@@ -41,7 +41,28 @@ describe('Test Cars Routes', () => {
     expect(response.body).toEqual(newCar);
   });
 
-  afterAll(() => {
-    pool.end();
+  it('PUT /car/:id should modify an existing car', async () => {
+    const response = await request(app)
+      .put('/cars/2')
+      .send({ color: 'Neon Yellow' });
+    const expectedResponse = {
+      id: 2,
+      vin: '3GYFNBE32CS128208',
+      color: 'Neon Yellow',
+    };
+    expect(response.status).toBe(200);
+    expect(response.body).toEqual(expectedResponse);
   });
+});
+
+it('stuff', () => {
+  try {
+    //something
+  } catch (e) {
+    //catch something
+  }
+});
+
+afterAll(() => {
+  pool.end();
 });
