@@ -33,6 +33,18 @@ it('GET /locations/:id should return location information', async () => {
   expect(response.body).toEqual(expectedResponse);
 });
 
+it('POST /location should add a new location', async () => {
+  const newLocation = {
+    city: 'Olympia',
+    country: 'United States',
+  };
+  const response = await request(app).post('/locations').send(newLocation);
+  expect(response.status).toBe(200);
+  expect(response.body).toEqual({
+    id: expect.any(String),
+    ...newLocation,
+  });
+});
 afterAll(() => {
   pool.end();
 });
