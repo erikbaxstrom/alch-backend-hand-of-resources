@@ -3,7 +3,7 @@ const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
 
-describe('test', () => {
+describe('Test Animals Routes', () => {
   beforeEach(() => {
     return setup(pool);
   });
@@ -50,6 +50,17 @@ describe('test', () => {
       { id: '8', commonName: 'Nyala', scientificName: 'Tragelaphus angasi' },
     ];
 
+    expect(response.body).toEqual(expectedResponse);
+  });
+
+  it('GET /animals/:id should return an animal', async () => {
+    const response = await request(app).get('/animals/5');
+    expect(response.status).toBe(200);
+    const expectedResponse = {
+      id: '5',
+      commonName: 'Seal, northern elephant',
+      scientificName: 'Mirounga angustirostris',
+    };
     expect(response.body).toEqual(expectedResponse);
   });
 });
