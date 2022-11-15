@@ -19,6 +19,18 @@ describe('Test Cars Routes', () => {
     ];
     expect(response.body).toEqual(expectedResponse);
   });
+
+  it('GET /cars/:id should return details for a car', async () => {
+    const resp = await request(app).get('/cars/4');
+    expect(resp.status).toBe(200);
+    const expectedResponse = {
+      id: 4,
+      vin: 'WBA6A0C55ED753888',
+      color: 'Maroon',
+    };
+    expect(resp.body).toEqual(expectedResponse);
+  });
+
   afterAll(() => {
     pool.end();
   });
