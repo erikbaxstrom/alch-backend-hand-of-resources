@@ -45,6 +45,20 @@ it('POST /location should add a new location', async () => {
     ...newLocation,
   });
 });
+
+it('PUT', async () => {
+  const response = await request(app)
+    .put('/locations/4')
+    .send({ city: 'Beijing' });
+  expect(response.status).toBe(200);
+  const expectedResponse = {
+    id: '4',
+    city: 'Beijing',
+    country: 'China',
+  };
+  expect(response.body).toEqual(expectedResponse);
+});
+
 afterAll(() => {
   pool.end();
 });
