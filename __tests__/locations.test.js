@@ -10,12 +10,13 @@ describe('Test Locations Routes', () => {
   //tests
   it('GET /locations should return a list of city, country, and id', async () => {
     const response = await request(app).get('/locations');
+    console.log('test got:', response.body);
     const expectedResponse = [
-      { id: 1, country: 'Oslo', city: 'Norway' },
-      { id: 2, country: 'Göteborg', city: 'Sweden' },
-      { id: 3, country: 'Petrovskaya', city: 'Russia' },
-      { id: 4, country: 'Jingling', city: 'China' },
-      { id: 5, country: 'Xiaozhang', city: 'China' },
+      { id: '1', city: 'Oslo', country: 'Norway' },
+      { id: '2', city: 'Göteborg', country: 'Sweden' },
+      { id: '3', city: 'Petrovskaya', country: 'Russia' },
+      { id: '4', city: 'Jingling', country: 'China' },
+      { id: '5', city: 'Xiaozhang', country: 'China' },
     ];
     expect(response.status).toBe(200);
     expect(response.body).toEqual(expectedResponse);
