@@ -48,3 +48,26 @@ insert into locations (city, country) values ('Göteborg', 'Sweden');
 insert into locations (city, country) values ('Petrovskaya', 'Russia');
 insert into locations (city, country) values ('Jingling', 'China');
 insert into locations (city, country) values ('Xiaozhang', 'China');
+
+
+
+
+
+
+
+
+DROP TABLE IF EXISTS animals;
+
+create table animals (
+	id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	common_name VARCHAR(50),
+	scientific_name VARCHAR(50)
+);
+insert into animals (common_name, scientific_name) values ('Common zorro', 'Dusicyon thous');
+insert into animals (common_name, scientific_name) values ('Lion, south american sea', 'Otaria flavescens');
+insert into animals (common_name, scientific_name) values ('Collared peccary', 'Tayassu tajacu');
+insert into animals (common_name, scientific_name) values ('Ground monitor (unidentified)', 'Varanus sp.');
+insert into animals (common_name, scientific_name) values ('Seal, northern elephant', 'Mirounga angustirostris');
+insert into animals (common_name, scientific_name) values ('Dove, white-winged', 'Zenaida asiatica');
+insert into animals (common_name, scientific_name) values ('Grenadier, common', 'Uraeginthus granatina');
+insert into animals (common_name, scientific_name) values ('Nyala', 'Tragelaphus angasi');
