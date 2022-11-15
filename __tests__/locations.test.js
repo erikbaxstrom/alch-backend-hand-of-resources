@@ -10,7 +10,6 @@ describe('Test Locations Routes', () => {
   //tests
   it('GET /locations should return a list of city, country, and id', async () => {
     const response = await request(app).get('/locations');
-    console.log('test got:', response.body);
     const expectedResponse = [
       { id: '1', city: 'Oslo', country: 'Norway' },
       { id: '2', city: 'Göteborg', country: 'Sweden' },
@@ -21,6 +20,17 @@ describe('Test Locations Routes', () => {
     expect(response.status).toBe(200);
     expect(response.body).toEqual(expectedResponse);
   });
+});
+
+it('GET /locations/:id should return location information', async () => {
+  const response = await request(app).get('/locations/1');
+  expect(response.status).toBe(200);
+  const expectedResponse = {
+    id: '1',
+    city: 'Oslo',
+    country: 'Norway',
+  };
+  expect(response.body).toEqual(expectedResponse);
 });
 
 afterAll(() => {
