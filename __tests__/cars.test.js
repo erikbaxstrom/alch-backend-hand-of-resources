@@ -37,9 +37,7 @@ describe('Test Cars Routes', () => {
       vin: '1N6AA0ED3FN456631',
       color: 'Electric Blue',
     };
-    const response = await (
-      await request(app).post('/car')
-    ).setEncoding(newCar);
+    const response = await request(app).post('/cars').send(newCar);
     expect(response.body).toEqual(newCar);
   });
 
