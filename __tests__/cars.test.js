@@ -55,13 +55,13 @@ describe('Test Cars Routes', () => {
   });
 });
 
-// it('stuff', () => {
-//   try {
-//     //something
-//   } catch (e) {
-//     //catch something
-//   }
-// });
+it('DELETE /car/:id should delete a car by id', async () => {
+  const response = await request(app).delete('/cars/5');
+  expect(response.status).toBe(200);
+
+  const noResp = await request(app).get('/cars/5');
+  expect(noResp.status).toBe(404);
+});
 
 afterAll(() => {
   pool.end();
