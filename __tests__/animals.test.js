@@ -8,46 +8,46 @@ describe('test', () => {
     return setup(pool);
   });
 
-  it('GET /locations should return a list of city, country, and id', async () => {
+  it('GET /animals should return a list of animals', async () => {
     const response = await request(app).get('/animals');
     expect(response.status).toBe(200);
     const expectedResponse = [
       {
         id: '1',
-        common_name: 'Common zorro',
-        scientific_name: 'Dusicyon thous',
+        commonName: 'Common zorro',
+        scientificName: 'Dusicyon thous',
       },
       {
         id: '2',
-        common_name: 'Lion, south american sea',
-        scientific_name: 'Otaria flavescens',
+        commonName: 'Lion, south american sea',
+        scientificName: 'Otaria flavescens',
       },
       {
         id: '3',
-        common_name: 'Collared peccary',
-        scientific_name: 'Tayassu tajacu',
+        commonName: 'Collared peccary',
+        scientificName: 'Tayassu tajacu',
       },
       {
         id: '4',
-        common_name: 'Ground monitor (unidentified)',
-        scientific_name: 'Varanus sp.',
+        commonName: 'Ground monitor (unidentified)',
+        scientificName: 'Varanus sp.',
       },
       {
         id: '5',
-        common_name: 'Seal, northern elephant',
-        scientific_name: 'Mirounga angustirostris',
+        commonName: 'Seal, northern elephant',
+        scientificName: 'Mirounga angustirostris',
       },
       {
         id: '6',
-        common_name: 'Dove, white-winged',
-        scientific_name: 'Zenaida asiatica',
+        commonName: 'Dove, white-winged',
+        scientificName: 'Zenaida asiatica',
       },
       {
         id: '7',
-        common_name: 'Grenadier, common',
-        scientific_name: 'Uraeginthus granatina',
+        commonName: 'Grenadier, common',
+        scientificName: 'Uraeginthus granatina',
       },
-      { id: '8', common_name: 'Nyala', scientific_name: 'Tragelaphus angasi' },
+      { id: '8', commonName: 'Nyala', scientificName: 'Tragelaphus angasi' },
     ];
 
     expect(response.body).toEqual(expectedResponse);
