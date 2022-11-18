@@ -66,7 +66,7 @@ describe('Test Plants Routes', () => {
     });
   });
 
-  it('PUT /plants/:id should update an plant', async () => {
+  it('PUT /plants/:id should update a plant', async () => {
     const response = await request(app)
       .put('/plants/1')
       .send({ scientificName: 'Planty McFacePlant' });
@@ -77,6 +77,14 @@ describe('Test Plants Routes', () => {
       scientificName: 'Planty McFacePlant',
     };
     expect(response.body).toEqual(expectedResponse);
+  });
+
+  it('DELETE /plant/:id should delete a plant', async () => {
+    const response = await request(app).delete('/plants/5');
+    expect(response.status).toBe(200);
+
+    const noResp = await request(app).get('/plants/5');
+    expect(noResp.status).toBe(404);
   });
 });
 
