@@ -71,3 +71,22 @@ insert into animals (common_name, scientific_name) values ('Seal, northern eleph
 insert into animals (common_name, scientific_name) values ('Dove, white-winged', 'Zenaida asiatica');
 insert into animals (common_name, scientific_name) values ('Grenadier, common', 'Uraeginthus granatina');
 insert into animals (common_name, scientific_name) values ('Nyala', 'Tragelaphus angasi');
+
+
+
+
+DROP TABLE IF EXISTS plants;
+
+create table plants (
+	id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	common_name VARCHAR(50),
+	scientific_name VARCHAR(50)
+);
+
+
+insert into plants (common_name, scientific_name) values ('Cleveland''s Cryptantha', 'Cryptantha clevelandii Greene var. clevelandii');
+insert into plants (common_name, scientific_name) values ('Fremont''s Deathcamas', 'Zigadenus fremontii (Torr.) Torr. ex S. Watson');
+insert into plants (common_name, scientific_name) values ('Oakwoods Ponysfoot', 'Dichondra recurvata Tharp & M.C. Johnst.');
+insert into plants (common_name, scientific_name) values ('Myrinia Moss', 'Myrinia Schimp.');
+insert into plants (common_name, scientific_name) values ('Murphey''s Century Plant', 'Agave murpheyi F. Gibson');
+-- insert into plants (common_name, scientific_name) values ('Flavopunctelia Lichen', 'Flavopunctelia praesignis (Nyl.) Hale');
