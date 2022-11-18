@@ -41,6 +41,17 @@ describe('Test Plants Routes', () => {
 
     expect(response.body).toEqual(expectedResponse);
   });
+
+  it('GET /plants/:id should return a plant', async () => {
+    const response = await request(app).get('/plants/4');
+    expect(response.status).toBe(200);
+    const expectedResponse = {
+      id: '4',
+      commonName: 'Myrinia Moss',
+      scientificName: 'Myrinia Schimp.',
+    };
+    expect(response.body).toEqual(expectedResponse);
+  });
 });
 
 afterAll(() => {
