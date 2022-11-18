@@ -69,7 +69,7 @@ describe('Test Animals Routes', () => {
       commonName: 'Sponge Bob',
       scientificName: 'Square Pants',
     };
-    const response = await request(app).post('/locations').send(newAnimal);
+    const response = await request(app).post('/animals').send(newAnimal);
     expect(response.status).toBe(200);
     expect(response.body).toEqual({
       id: expect.any(String),
