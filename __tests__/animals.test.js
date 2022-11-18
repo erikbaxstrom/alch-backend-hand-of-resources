@@ -88,10 +88,16 @@ describe('Test Animals Routes', () => {
     };
     expect(response.body).toEqual(expectedResponse);
   });
+
+  it('DELETE /animal/:id should delete an animal', async () => {
+    const response = await request(app).delete('/animals/4');
+    expect(response.status).toBe(200);
+
+    const noResp = await request(app).get('/animals/4');
+    expect(noResp.status).toBe(404);
+  });
 });
 
 afterAll(() => {
   pool.end();
 });
-
-// insert into animals (common_name, scientific_name) values ('Wallaby, red-necked', 'Macropus rufogriseus');
