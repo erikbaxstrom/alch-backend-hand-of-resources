@@ -76,6 +76,18 @@ describe('Test Animals Routes', () => {
       ...newAnimal,
     });
   });
+  it('PUT /animals/:id should update an animal', async () => {
+    const response = await request(app)
+      .put('/animals/2')
+      .send({ scientificName: 'caticus maximus' });
+    expect(response.status).toBe(200);
+    const expectedResponse = {
+      id: '2',
+      commonName: 'Lion, south american sea',
+      scientificName: 'caticus maximus',
+    };
+    expect(response.body).toEqual(expectedResponse);
+  });
 });
 
 afterAll(() => {
