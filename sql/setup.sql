@@ -84,9 +84,9 @@ create table plants (
 );
 
 
-insert into plants (common_name, scientific_name) values ('Cleveland''s Cryptantha', 'Cryptantha clevelandii Greene var. clevelandii');
-insert into plants (common_name, scientific_name) values ('Fremont''s Deathcamas', 'Zigadenus fremontii (Torr.) Torr. ex S. Watson');
+insert into plants (common_name, scientific_name) values ('Cleveland Cryptantha', 'Cryptantha clevelandii Greene var. clevelandii');
+insert into plants (common_name, scientific_name) values ('Fremonts Deathcamas', 'Zigadenus fremontii (Torr.) Torr. ex S. Watson');
 insert into plants (common_name, scientific_name) values ('Oakwoods Ponysfoot', 'Dichondra recurvata Tharp & M.C. Johnst.');
 insert into plants (common_name, scientific_name) values ('Myrinia Moss', 'Myrinia Schimp.');
-insert into plants (common_name, scientific_name) values ('Murphey''s Century Plant', 'Agave murpheyi F. Gibson');
+insert into plants (common_name, scientific_name) values ('Murpheys Century Plant', 'Agave murpheyi F. Gibson');
 -- insert into plants (common_name, scientific_name) values ('Flavopunctelia Lichen', 'Flavopunctelia praesignis (Nyl.) Hale');

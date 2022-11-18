@@ -13,21 +13,29 @@ describe('Test Plants Routes', () => {
     expect(response.status).toBe(200);
     const expectedResponse = [
       {
-        common_name: 'Cleveland Cryptantha',
-        scientific_name: 'Cryptantha clevelandii Greene var. clevelandii',
+        id: '1',
+        commonName: 'Cleveland Cryptantha',
+        scientificName: 'Cryptantha clevelandii Greene var. clevelandii',
       },
       {
-        common_name: 'Fremont Deathcamas',
-        scientific_name: 'Zigadenus fremontii (Torr.) Torr. ex S. Watson',
+        id: '2',
+        commonName: 'Fremonts Deathcamas',
+        scientificName: 'Zigadenus fremontii (Torr.) Torr. ex S. Watson',
       },
       {
-        common_name: 'Oakwoods Ponysfoot',
-        scientific_name: 'Dichondra recurvata Tharp & M.C. Johnst.',
+        id: '3',
+        commonName: 'Oakwoods Ponysfoot',
+        scientificName: 'Dichondra recurvata Tharp & M.C. Johnst.',
       },
-      { common_name: 'Myrinia Moss', scientific_name: 'Myrinia Schimp.' },
       {
-        common_name: 'Murpheys Century Plant',
-        scientific_name: 'Agave murpheyi F. Gibson',
+        id: '4',
+        commonName: 'Myrinia Moss',
+        scientificName: 'Myrinia Schimp.',
+      },
+      {
+        id: '5',
+        commonName: 'Murpheys Century Plant',
+        scientificName: 'Agave murpheyi F. Gibson',
       },
     ];
 
