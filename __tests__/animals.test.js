@@ -63,6 +63,19 @@ describe('Test Animals Routes', () => {
     };
     expect(response.body).toEqual(expectedResponse);
   });
+
+  it('POST /animals should add a new animal', async () => {
+    const newAnimal = {
+      commonName: 'Sponge Bob',
+      scientificName: 'Square Pants',
+    };
+    const response = await request(app).post('/locations').send(newAnimal);
+    expect(response.status).toBe(200);
+    expect(response.body).toEqual({
+      id: expect.any(String),
+      ...newAnimal,
+    });
+  });
 });
 
 afterAll(() => {
