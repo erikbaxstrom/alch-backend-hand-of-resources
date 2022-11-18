@@ -52,6 +52,19 @@ describe('Test Plants Routes', () => {
     };
     expect(response.body).toEqual(expectedResponse);
   });
+
+  it('POST /plants should add a new plant', async () => {
+    const newPlant = {
+      commonName: 'Flavopunctelia Lichen',
+      scientificName: 'Flavopunctelia praesignis (Nyl.) Hale',
+    };
+    const response = await request(app).post('/plants').send(newPlant);
+    expect(response.status).toBe(200);
+    expect(response.body).toEqual({
+      id: expect.any(String),
+      ...newPlant,
+    });
+  });
 });
 
 afterAll(() => {
