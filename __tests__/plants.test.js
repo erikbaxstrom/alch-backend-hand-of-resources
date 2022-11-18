@@ -65,6 +65,19 @@ describe('Test Plants Routes', () => {
       ...newPlant,
     });
   });
+
+  it('PUT /plants/:id should update an plant', async () => {
+    const response = await request(app)
+      .put('/plants/1')
+      .send({ scientificName: 'Planty McFacePlant' });
+    expect(response.status).toBe(200);
+    const expectedResponse = {
+      id: '1',
+      commonName: 'Cleveland Cryptantha',
+      scientificName: 'Planty McFacePlant',
+    };
+    expect(response.body).toEqual(expectedResponse);
+  });
 });
 
 afterAll(() => {
